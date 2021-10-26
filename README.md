@@ -34,3 +34,5 @@ Bản final docs (_đang cập nhật dần_) [Final Notes](https://docs.google.
 - Kết nối tới thiết bị Android (or emulator), xem đã kết nối chưa hoặc xem tên thiết bị bằng lệnh ```adb devices
 - Mở project trong IntelliJ, thay đổi đường dẫn tới app và tên thiết bị deviceName (các app được lưu trong AutomationTest//src//app//)
 - Ctrl Shift F10 hoặc chuột phải vào file java để thực thi test
+
+[**Selenium Project**](https://github.com/tuananhlai/qa_remind_clone)
