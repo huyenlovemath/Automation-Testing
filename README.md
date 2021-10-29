@@ -13,6 +13,7 @@
 
 **Device/Emulator**
 - Android Studio 
+- Change "emulatorName" in src/test/java/.env to your device name.
 
 **Support Tools**
 - [Appium Inspector](https://github.com/appium/appium-inspector/releases) to get element location or hint for function needed
