@@ -10,6 +10,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.net.URL;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class TelegramTestV {
@@ -52,30 +53,38 @@ public class TelegramTestV {
     public void SendMessage() {
         System.out.println(" Start Send Message test");
 
+        String messageToSend = "haha";
         WebElement choosePartner = driver.findElementByXPath("//android.view.ViewGroup[@index='0']");
         choosePartner.click();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         WebElement edit = driver.findElementByXPath("//android.widget.EditText[@index='1']");
         edit.click();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        edit.sendKeys("haha");
+        edit.sendKeys(messageToSend);
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         WebElement sendButton = driver.findElementByXPath("//android.view.View[@content-desc='Send']");
         sendButton.click();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
-        Assert.assertEquals("80","80");
+        List<WebElement> message = driver.findElementsByXPath("//androidx.recyclerview.widget.RecyclerView/*");
+        WebElement lastMessage = message.get(message.size() - 1);
+        String lastMessageString = lastMessage.getAttribute ("content-desc").toString();
+        Assert.assertEquals(lastMessageString.substring(0, messageToSend.length()),messageToSend);
     }
 
     @Test
     public void SendEmoji() {
         System.out.println(" Start Send Message test");
 
+        String emojiToSend = "\uD83D\uDE18";
         WebElement choosePartner = driver.findElementByXPath("//android.view.ViewGroup[@index='0']");
         choosePartner.click();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         WebElement emojiButton = driver.findElementByXPath("//android.widget.ImageView[@content-desc='Emoji, stickers, and GIFs']");
         emojiButton.click();
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        WebElement emojisButton = driver.findElementByXPath("//android.widget.ImageView[@content-desc=\"Emoji\"]");
+        emojisButton.click();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         WebElement emoji = driver.findElementByXPath("//android.widget.ImageView[@content-desc=\"\uD83D\uDE18\"]");
         emoji.click();
@@ -84,13 +93,18 @@ public class TelegramTestV {
         sendButton.click();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
-        Assert.assertEquals("80","80");
+        driver.navigate().back();
+        List<WebElement> message = driver.findElementsByXPath("//androidx.recyclerview.widget.RecyclerView/*");
+        WebElement lastMessage = message.get(message.size() - 1);
+        String lastMessageString = lastMessage.getAttribute ("content-desc").toString();
+        Assert.assertEquals(lastMessageString.substring(0, emojiToSend.length()),emojiToSend);
     }
 
     @Test
     public void SendStiker() {
         System.out.println(" Start Send Message test");
 
+        String stickerToSend ="\uD83D\uDE02 Sticker";
         WebElement choosePartner = driver.findElementByXPath("//android.view.ViewGroup[@index='0']");
         choosePartner.click();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
@@ -100,23 +114,22 @@ public class TelegramTestV {
         WebElement stickerButton = driver.findElementByXPath("//android.widget.ImageView[@content-desc=\"Stickers\"]");
         stickerButton.click();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-
-
-
         WebElement stiker = driver.findElementByXPath("//android.widget.FrameLayout[@content-desc=\"\uD83D\uDE02 Sticker\"]");
         stiker.click();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        //WebElement sendButton = driver.findElementByXPath("//android.view.View[@content-desc='Send']");
-        //sendButton.click();
-        //driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
-        Assert.assertEquals("80","80");
+        driver.navigate().back();
+        List<WebElement> message = driver.findElementsByXPath("//androidx.recyclerview.widget.RecyclerView/*");
+        WebElement lastMessage = message.get(message.size() - 1);
+        String lastMessageString = lastMessage.getAttribute ("content-desc").toString();
+        Assert.assertEquals(lastMessageString.substring(0, stickerToSend.length()),stickerToSend);
     }
 
     @Test
     public void ShareLocationMessage() {
         System.out.println(" Start Share Location test");
 
+        String locationString ="Location";
         WebElement choosePartner = driver.findElementByXPath("//android.view.ViewGroup[@index='0']");
         choosePartner.click();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
@@ -132,10 +145,16 @@ public class TelegramTestV {
         SEND.click();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
-        Assert.assertEquals("80","80");
+        //List<WebElement> message = driver.findElementsByXPath("//androidx.recyclerview.widget.RecyclerView/*");
+        //WebElement lastMessage = message.get(message.size() - 1);
+        //String lastMessageString = lastMessage.getAttribute ("content-desc").toString();
+        //String lastMessageString = message.get(0).getAttribute ("index").toString();
+
+        //System.out.println(lastMessageString);
+        //Assert.assertEquals(lastMessageString.substring(0, locationString.length()),locationString);
     }
 
-    @Test
+    /*@Test
     public void UploadFile() { //Lỗi
         System.out.println(" Start Upload File test");
 
@@ -153,7 +172,7 @@ public class TelegramTestV {
         //Tiếp theo là lấy element file, nhưng nó là danh sách, k làm dc
 
         Assert.assertEquals("80","80");
-    }
+    }*/
 
     @Test
     public void ChangeTheme() {
@@ -224,7 +243,7 @@ public class TelegramTestV {
 
         Assert.assertEquals("80","80");
     }
-
+/*
     @Test
     public void BlockUser() { // Loi
         System.out.println(" Start Block User test");
@@ -241,16 +260,16 @@ public class TelegramTestV {
         options.click();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
-        /*WebElement block = driver.findElementByXPath("//android.widget.TextView[@text='Block user'");
-        block.click();
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        //WebElement block = driver.findElementByXPath("//android.widget.TextView[@text='Block user'");
+        //block.click();
+        //driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
-        WebElement confirmBlock = driver.findElementByXPath("//android.widget.TextView[@text='BLOCK USER'");
-        confirmBlock.click();
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);*/
+        //WebElement confirmBlock = driver.findElementByXPath("//android.widget.TextView[@text='BLOCK USER'");
+        //confirmBlock.click();
+        //driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
         Assert.assertEquals("80","80");
-    }
+    }*/
 
     @Test
     public void FindUserAndCheckInbox() {
@@ -274,6 +293,7 @@ public class TelegramTestV {
         Assert.assertEquals("80","80");
     }
 
+    /*
     @Test
     public void DeleteMessage() { //Lỗi
         System.out.println(" Start Delete Message test");
@@ -282,24 +302,24 @@ public class TelegramTestV {
         choosePartner.click();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
-        WebElement message = driver.findElementByXPath("//android.view.ViewGroup[@index='0']");
-        //TouchAction actionOne = new TouchAction(driver);
-        //actionOne.tap((TapOptions) message);
-        //actionOne.perform();
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        message.click();
+        List<WebElement> messages = driver.findElementsByXPath("//androidx.recyclerview.widget.RecyclerView/*");
+        WebElement lastMessage = messages.get(messages.size() - 1);
+
+        TouchActions action = new TouchActions(driver);
+        action.singleTap(lastMessage);
+        action.perform();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
-        /*WebElement deleteButton = driver.findElementByXPath("//android.widget.TextView[@text='Delete']");
-        deleteButton.click();
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        //WebElement deleteButton = driver.findElementByXPath("//android.widget.TextView[@text='Delete']");
+        //deleteButton.click();
+        //driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
-        WebElement DELETE = driver.findElementByXPath("android.widget.TextView[@text='DELETE']");
-        DELETE.click();
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-*/
+        //WebElement DELETE = driver.findElementByXPath("android.widget.TextView[@text='DELETE']");
+        //DELETE.click();
+        //driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+
         Assert.assertEquals("80","80");
     }
-
+*/
 
 }
