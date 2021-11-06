@@ -16,7 +16,7 @@ public class ChangeAccountInfo extends MobileTest {
 
     private static final String firstNameTest = "NewFirstName";
     private static final String lastNameTest  = "NewLastName";
-    private static final String bioTest  = "New Bio";
+    private static String bioTest  = "New Bio";
     private static final int maxLengthBio = 70;
 
     @BeforeMethod
