@@ -11,13 +11,13 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-public class DeleteMessage extends MobileTest {
-    public DeleteMessage() throws IOException {
+public class DeleteChat extends MobileTest {
+    public DeleteChat() throws IOException {
 
     }
 
     @Test
-    public void deleteChat() {
+    public void deleteOneChat() {
         int totalChats = this.driver.findElementsByClassName("android.view.ViewGroup").size();
         System.out.println("Total chat " + totalChats);
         WebElement chatForDelete = this.driver.findElementByXPath("//android.view.ViewGroup[1]");
