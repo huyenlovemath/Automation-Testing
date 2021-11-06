@@ -12,7 +12,7 @@ public class SecretChat extends TelegramTest {
     public SecretChat() throws IOException {
     }
 
-    private static final String friendToChat  = "Viet-kiemthu";
+    private static final String friendToChat  = "Huyen-kiemthu";
 
     @Test
     public void newSecretChat() {
@@ -24,7 +24,7 @@ public class SecretChat extends TelegramTest {
         newSecretChat.click();
         this.driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
-        WebElement selectFriendToChat = this.driver.findElementByXPath("//android.widget.TextView[@text=\"" + friendToChat + "\"]");
+        WebElement selectFriendToChat = this.driver.findElementByXPath("//android.widget.TextView[@text='Huyen-kiemthu']");
         selectFriendToChat.click();
         this.driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
     }
