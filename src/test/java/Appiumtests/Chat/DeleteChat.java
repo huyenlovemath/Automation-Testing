@@ -1,10 +1,8 @@
 package Appiumtests.Chat;
 
 import Appiumtests.MobileTest;
-import io.appium.java_client.TouchAction;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.touch.TouchActions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

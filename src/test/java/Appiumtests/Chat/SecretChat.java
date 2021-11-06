@@ -12,7 +12,7 @@ public class SecretChat extends MobileTest {
     public SecretChat() throws IOException {
     }
 
-    private static final String friendToChat  = "Viet-kiemthu";
+    private static final String friendToChat  = "Viet";
 
     @Test
     public void newSecretChat() {
