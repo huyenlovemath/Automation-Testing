@@ -49,9 +49,13 @@ public class ChangeAccountInfo extends MobileTest {
         WebElement firstName = this.driver.findElementByXPath("//android.widget.EditText[1]");
         WebElement lastName = this.driver.findElementByXPath("//android.widget.EditText[2]");
         firstName.clear();
+        this.driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         lastName.clear();
+        this.driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         firstName.sendKeys(firstNameTest);
+        this.driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         lastName.sendKeys(lastNameTest);
+        this.driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
         WebElement saveName = this.driver.findElementByXPath("//android.widget.ImageButton[@content-desc=\"Done\"]/android.widget.ImageView");
         saveName.click();

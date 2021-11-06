@@ -60,7 +60,10 @@ public class NormalChat extends MobileTest {
         sendButton.click();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
+        driver.navigate().back();
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         List<WebElement> message = driver.findElementsByXPath("//androidx.recyclerview.widget.RecyclerView/*");
+        System.out.println(message.size());
         WebElement lastMessage = message.get(message.size() - 1);
         String lastMessageString = lastMessage.getAttribute ("content-desc").toString();
         Assert.assertEquals(lastMessageString.substring(0, messageToSend.length()),messageToSend);
@@ -88,6 +91,7 @@ public class NormalChat extends MobileTest {
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
         driver.navigate().back();
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         List<WebElement> message = driver.findElementsByXPath("//androidx.recyclerview.widget.RecyclerView/*");
         WebElement lastMessage = message.get(message.size() - 1);
         String lastMessageString = lastMessage.getAttribute ("content-desc").toString();
@@ -113,6 +117,7 @@ public class NormalChat extends MobileTest {
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
         driver.navigate().back();
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         List<WebElement> message = driver.findElementsByXPath("//androidx.recyclerview.widget.RecyclerView/*");
         WebElement lastMessage = message.get(message.size() - 1);
         String lastMessageString = lastMessage.getAttribute ("content-desc").toString();
