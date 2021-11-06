@@ -1,6 +1,6 @@
-package Appiumtests.Account;
+package Appiumtests.MobileApp.Account;
 
-import Appiumtests.MobileTest;
+import Appiumtests.MobileApp.MobileTest;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;

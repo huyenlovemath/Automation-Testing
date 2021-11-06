@@ -1,6 +1,6 @@
-package Appiumtests.Chat;
+package Appiumtests.MobileApp.Chat;
 
-import Appiumtests.MobileTest;
+import Appiumtests.MobileApp.MobileTest;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
