@@ -12,8 +12,6 @@ import java.util.concurrent.TimeUnit;
 
 public class TelegramTestWindow extends DesktopTest{
 
-    private AppiumDriver<WebElement> driver;
-
     public TelegramTestWindow() throws IOException {
     }
 
