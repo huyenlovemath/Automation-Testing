@@ -14,9 +14,9 @@ public class ChangeAccountInfo extends MobileTest {
     public ChangeAccountInfo() throws IOException {
     }
 
-    private static final String firstNameTest = "test first name";
-    private static final String lastNameTest  = "test last name";
-    private static final String bioTest  = "test bio";
+    private static final String firstNameTest = "NewFirstName";
+    private static final String lastNameTest  = "NewLastName";
+    private static final String bioTest  = "New Bio";
     private static final int maxLengthBio = 70;
 
     @BeforeMethod
@@ -83,6 +83,7 @@ public class ChangeAccountInfo extends MobileTest {
         this.driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
         WebElement bioContentNew = this.driver.findElementByXPath("//android.widget.FrameLayout[5]");
+        this.driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
         Assert.assertEquals(bioContentNew.getText(),"Bio: " + bioTest);
     }
