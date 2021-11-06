@@ -24,18 +24,14 @@ public class ChangeTheme extends MobileTest {
         WebElement Menu = driver.findElementByXPath("//android.widget.ImageView[@content-desc='Open navigation menu']");
         Menu.click();
 
-        WebElement changeTheme;
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        try {
-            changeTheme = driver.findElementByXPath(dayTheme);
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+
+        WebElement changeTheme = driver.findElementByXPath(dayTheme);
+        if (changeTheme.isDisplayed()) {
             changeTheme.click();
-        } catch (NoSuchElementException e) {
-            changeTheme = driver.findElementByXPath(nightTheme);
-            changeTheme.click();
+        } else {
+            driver.findElementByXPath(nightTheme).click();
         }
-
-
-
 
     }
 }
