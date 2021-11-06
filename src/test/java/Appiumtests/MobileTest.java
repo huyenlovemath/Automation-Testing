@@ -13,7 +13,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 
-public class TelegramTest {
+public class MobileTest {
     private static String localDir = System.getProperty("user.dir");
     private static FileInputStream fileConfig;
     private static String environmentVariable;
@@ -38,7 +38,7 @@ public class TelegramTest {
     private static final String APPIUM = jsonEnvironmentVariable.getString("hostAppium");
     protected AndroidDriver driver;
 
-    public TelegramTest() throws IOException {
+    public MobileTest() throws IOException {
     }
 
     @BeforeMethod
