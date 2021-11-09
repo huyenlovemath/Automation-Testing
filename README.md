@@ -24,9 +24,7 @@
 
 - Bắt đầu Appium Server
 - Kết nối tới thiết bị Android (or emulator), xem đã kết nối chưa hoặc xem tên thiết bị bằng lệnh ```adb devices```
-- Mở project trong IntelliJ, tahy đổi emulatorName trong file /test/java/.env
+- Mở project trong IntelliJ, thay đổi emulatorName trong file /test/java/.env
 - Ctrl Shift F10 hoặc chuột phải vào file java để thực thi test
 
-**Project mẫu**
 
-[**Selenium Project**](https://github.com/tuananhlai/qa_remind_clone)
